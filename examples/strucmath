@@ -1,0 +1,19 @@
+    Variable v = new_i8(0x12);
+    Variable v2 = new_u16(0x3412);
+    printVariable(v);
+    printVariable(v2);
+    if (v.type == t_i8) {
+        std::cout << "v is i8" << std::endl;
+    } else {
+        std::cout << "v is not i8" << std::endl;
+    }
+    Type st = new_struct_type({t_i8, t_u16});
+    Variable s = new_struct({v, v2}); // creates the struct type {i8, u16} and creates a variable of that type
+    printVariable(s);
+    if (s.type == st) {
+        std::cout << "s is struct" << std::endl;
+    } else {
+        std::cout << "s is not struct" << std::endl;
+    }
+    Variable out = var_add_i(s.getsub(0), s.getsub(1));
+    printVariable(out);

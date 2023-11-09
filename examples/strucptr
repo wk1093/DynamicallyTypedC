@@ -1,0 +1,22 @@
+    Variable v = (u8)32;
+    if (v.type != t_u8) {
+        std::cout << "v is not u8" << std::endl;
+    }
+    Variable v2 = (f32)84.3f;
+    if (v2.type != t_f32) {
+        std::cout << "v2 is not f32" << std::endl;
+    }
+    Variable struc = {v, v2};
+    if (struc.type != Type{t_u8, t_f32}) {
+        std::cout << "struc is not {u8, f32}" << std::endl;
+    }
+
+    Variable strucp = &struc;
+
+    printVariable(v);
+    printVariable(v2);
+    printVariable(struc);
+    printVariable(strucp);
+
+    Variable v3 = *primitive<Variable*>(strucp);
+    printVariable(v3);

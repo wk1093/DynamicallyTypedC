@@ -1,0 +1,12 @@
+    Variable v = (u8)32;
+
+    printVariable(v);
+
+    // PTR TO V
+    Variable p = &v; // remember this is a Variable* not a u8*
+
+    printVariable(p);
+
+    auto pp = primitive<Variable*>(p); // if we did &v.getdata() it would be easier to do this,
+
+    printVariable(*pp);
